@@ -4,11 +4,10 @@ var url = require("url");
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 app.get("/*", function(req, res) {
 	var queryUrl = url.parse(req.url, true);
-	var arr = queryUrl.pathname.substring(1).replace(/%20|\,/g , " ").split(/ +/);
-	console.log(arr.toString() + " length " + arr.length);
+	var arr = queryUrl.pathname.substring(1).replace(/%20|\,|\-/g , " ").split(/ +/); // turn %20, \, and \- to space and split with space/s
 	if(arr.toString() === "") {
 		// home page
-		res.send("get me some date! <br> Format: month date year");
+		res.send("get me some date!<br>Format: month date year<br>Try other date formats too except the one with slash(/ or \\)");
 	} else {
 		var obj = {
 			unix: getUnix(arr),
