@@ -1,0 +1,33 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Timestamp Microservice</title>
+    <meta name="description" content="Timestamp Microservice">
+</head>
+<body style="font-family: Helvetica, sans-serif; font-size: 20px">
+	<main>
+		<header><h1>Timestamp Microservice</h1></header>
+		<section>
+			<h2>User Story</h2>
+			<ol>
+				<li>I can pass a string as a parameter, and it will check to see whether that string contains either a unix timestamp or a natural language date (example: January 1, 2016).</li>
+				<li>If it does, it returns both the Unix timestamp and the natural language form of that date.</li>
+				<li>If it does not contain a date or Unix timestamp, it returns null for those properties.</li>
+			</ol>
+		</section>
+		<section>
+			<h2>Format example</h2>
+			<ul>
+				<li><code><a href="https://timestamp-klm.herokuapp.com/773452800">https://timestamp-klm.herokuapp.com/773452800</a></code></li>
+				<li><code><a href="https://timestamp-klm.herokuapp.com/july%206%201994">https://timestamp-klm.herokuapp.com/july%206%201994</a></code></li>
+				<li><code><a href="https://timestamp-klm.herokuapp.com/07%2006%201994">https://timestamp-klm.herokuapp.com/07%2006%201994</a></code></li>
+				<li><code><a href="https://timestamp-klm.herokuapp.com/1994%20july%206">https://timestamp-klm.herokuapp.com/1994%20july%206</a></code></li>
+				<li><code><a href="https://timestamp-klm.herokuapp.com/7-6-1994">https://timestamp-klm.herokuapp.com/7-6-1994</a></code></li>
+				<li><code><a href="https://timestamp-klm.herokuapp.com/7,6,1994">https://timestamp-klm.herokuapp.com/7,6,1994</a></code></li>
+			</ul>
+		</section>
+		<footer>App made by <a href="https://kennethlumalicay.github.io/portfolio/" style="text-decoration: none">Kenneth Lu Malicay</a></footer>
+	</main>
+</body>
+</html>

@@ -2,12 +2,13 @@ var express = require("express");
 var app = express();
 var url = require("url");
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+app.use(express.static(__dirname + "/view"));
 app.get("/*", function(req, res) {
 	var queryUrl = url.parse(req.url, true);
 	var arr = queryUrl.pathname.substring(1).replace(/%20|\,|\-/g , " ").split(/ +/); // turn %20, \, and \- to space and split with space/s
 	if(arr.toString() === "") {
 		// home page
-		res.send("get me some date!<br>Format: month date year<br>Try other date formats too except the one with slash(/ or \\)");
+		res.sendFile("/index.html");
 	} else {
 		var obj = {
 			unix: getUnix(arr),
