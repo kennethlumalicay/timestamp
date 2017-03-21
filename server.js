@@ -3,10 +3,10 @@ var app = express();
 var url = require("url");
 app.get("/*", function(req, res) {
 	var queryUrl = url.parse(req.url, true);
-	var arr = queryUrl.pathname.substring(1).split("%20");
-	console.log(arr.toString());
+	var arr = queryUrl.pathname.substring(1).replace(/%20|\,/g , " ").split(/ +/);
+	console.log(arr.toString() + " length " + arr.length); // month,date,,year length 4
 	if(arr.toString() === "") {
-		res.send("get me some date!");
+		res.send("get me some date!\nFormat: month date year");
 	} else {
 		var obj = {
 			unix: getUnix(arr),
